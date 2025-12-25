@@ -1,0 +1,29 @@
+name: .NET Build
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main", "develop" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    # ДОБАВЬТЕ ЭТУ СЕКЦИЮ с правильным путем!
+    defaults:
+      run:
+        working-directory: ./src  # или путь к вашей папке с проектом
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+    - name: Restore dependencies
+      run: dotnet restore  # Теперь выполнится в ./src
+    - name: Build
+      run: dotnet build --no-restore --configuration Release
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
