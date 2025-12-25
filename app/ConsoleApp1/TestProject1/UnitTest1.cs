@@ -12,10 +12,10 @@ namespace TestProject1
             Calcuation calc = new Calcuation();
 
             // Act
-            var result = calc.Sum(2, 3);
+            var result = calc.Sum(4, 3);
 
             // Assert
-            Assert.Equal(5, result);
+            Assert.Equal(7, result);
         }
     }
 }
