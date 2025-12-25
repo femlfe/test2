@@ -19,6 +19,6 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore  # Теперь выполнится в ./src
     - name: Build
-      run: dotnet build --no-restore --configuration Release
+      run: dotnet build **/*.csproj --configuration Release
     - name: Test
       run: dotnet test --no-build --verbosity normal
