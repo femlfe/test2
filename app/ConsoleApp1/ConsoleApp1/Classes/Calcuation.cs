@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.Classes
 {
-    internal class Calcuation
+    public class Calcuation
     {
         public int Sum(int x, int y)
         {
