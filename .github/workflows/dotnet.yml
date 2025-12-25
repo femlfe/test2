@@ -12,13 +12,21 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
+    
     - name: Restore dependencies
-      run: dotnet restore ./app/ConsoleApp1/ConsoleApp1/ConsoleApp1.csproj
-    - name: Build
-      run: dotnet build ./app/ConsoleApp1/ConsoleApp1/ConsoleApp1.csproj --configuration Release
+      run: |
+        dotnet restore ./app/ConsoleApp1/ConsoleApp1.csproj
+        dotnet restore ./app/ConsoleApp1/TestProject1/TestProject1.csproj
+    
+    - name: Build ALL projects
+      run: |
+        dotnet build ./app/ConsoleApp1/ConsoleApp1.csproj --configuration Release --no-restore
+        dotnet build ./app/ConsoleApp1/TestProject1/TestProject1.csproj --configuration Release --no-restore
+    
     - name: Test
-      run: dotnet test ./app/ConsoleApp1/TestProject1/TestProject1.csproj --no-build --verbosity normal
+      run: dotnet test ./app/ConsoleApp1/TestProject1/TestProject1.csproj --configuration Release --no-build --verbosity normal
