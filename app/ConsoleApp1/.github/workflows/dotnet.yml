@@ -9,11 +9,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
-    # ДОБАВЬТЕ ЭТУ СЕКЦИЮ с правильным путем!
-    defaults:
-      run:
-        working-directory: ./src  # или путь к вашей папке с проектом
 
     steps:
     - uses: actions/checkout@v4
