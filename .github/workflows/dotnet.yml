@@ -17,8 +17,8 @@ jobs:
       with:
         dotnet-version: 8.0.x
     - name: Restore dependencies
-      run: dotnet restore  # Теперь выполнится в ./src
+      run: dotnet restore /app/ConsoleApp1/ConsoleApp1/ConsoleApp1.csproj
     - name: Build
-      run: dotnet build **/*.csproj --configuration Release
+      run: dotnet build /app/ConsoleApp1/ConsoleApp1/ConsoleApp1.csproj --configuration Release
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test /app/ConsoleApp1/TestProject1/TestProject1.csproj --no-build --verbosity normal
