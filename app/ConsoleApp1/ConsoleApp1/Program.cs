@@ -1,2 +1,5 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, cats!");
+﻿using ConsoleApp1.Classes;
+
+Calcuation calcuation = new Calcuation();
+
+Console.WriteLine(calcuation.Sum(5, 5));
