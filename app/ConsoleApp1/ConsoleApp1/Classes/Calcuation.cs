@@ -8,6 +8,9 @@ namespace ConsoleApp1.Classes
 {
     internal class Calcuation
     {
-        
+        public int Sum(int x, int y)
+        {
+            return x + y;
+        }
     }
 }
